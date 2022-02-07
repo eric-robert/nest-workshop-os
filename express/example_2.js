@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 
+let count = 0
+
 app.use(
     (req, res, next) => {
         const now = new Date()
@@ -15,6 +17,9 @@ app.get('/hello',
 
 app.get('/other_route', 
     (req, res) => res.send('Other Response'))
+
+app.get('/count', 
+    (req, res) => res.send({ count : ++count}))
 
 
 app.listen(3000)

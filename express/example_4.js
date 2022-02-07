@@ -21,7 +21,7 @@ app.use(
     (req, res, next) => {
         const now = new Date()
         const route = req.baseUrl + req.path
-        console.log(`${now.toISOString()} - ${req.method} ${route}`)
+        console.log(`${now.toISOString()} - ${req.method} ${route} with body ${JSON.stringify(req.body)}`)
         next()
     }
 )
@@ -39,7 +39,6 @@ app.get('/:account_id',
 // Here post is used instead of get
 app.post('/:account_id', 
     (req, res) => {
-        console.log(req.body)
         const account_id = req.params.account_id
         const message = req.body.message
         send_message(account_id, message)

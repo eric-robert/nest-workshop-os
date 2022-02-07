@@ -30,6 +30,13 @@ app.use(
     }
 )
 
+app.get('/demo/:id', 
+    (req, res) => {
+        const id = req.params.id
+        res.send({ id })
+    }
+)
+
 app.get('/:account_id/messages', 
     (req, res) => {
         const account_id = req.params.account_id
